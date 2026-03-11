@@ -589,10 +589,10 @@ export default function UCPortfolio() {
   }));
 
   const projects = [
-    { num:"01", name:"Lingua", role:"AI Language Learning Platform · Jan 2025 – Present",
-      desc:"Students get one hour of language class a day — nowhere near enough for real-world fluency. Lingua changes that. An AI-powered platform where high schoolers practice authentic conversations with distinct AI characters and receive real-time feedback, while teachers get a holistic view of what their entire class is struggling with. Built in active collaboration with high school Spanish teachers.",
-      tags:["React","Next.js","Supabase","Gemini Flash","PostgreSQL","RBAC"] },
-    { num:"02", name:"AI Career Coach", role:"Full-Stack AI App · Nov – Dec 2025",
+    { num:"01", name:"Lingua", link:"https://linguaclassroom.com", role:"AI Language Learning Platform · Jan 2025 – Present",
+      desc:"Students get one hour of language class a day — nowhere near enough for real-world fluency. Lingua changes that. An AI-powered platform where high schoolers practice authentic conversations with distinct AI characters and receive real-time feedback, while teachers get a holistic view of what their entire class is struggling with. Built in active collaboration with a high school Spanish teacher.",
+      tags:["React","Next.js","Supabase","Gemini Flash","PostgreSQL","RBAC"]},
+    { num:"02", name:"AI Career Coach", link:"https://ai-career-coach-kailash.vercel.app/", role:"Full-Stack AI App · Nov – Dec 2025",
       desc:"Gemini-powered ATS-compliant resume generation, mock interview engine with performance tracking, and automated weekly industry trend updates via Inngest workflows.",
       tags:["Next.js","NeonDB","Prisma","Inngest","Gemini Flash"] },
     { num:"03", name:"Home Price Estimator", role:"Data Structures + Full-Stack · Oct – Nov 2025",
@@ -694,6 +694,8 @@ export default function UCPortfolio() {
         .pname.star{background:linear-gradient(110deg,var(--cyan),var(--violet2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
         .prole{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:0.82rem;color:var(--cyan);margin-bottom:4px}
         .pdate{font-weight:300;font-size:0.75rem;color:var(--dim)}
+        .pname-link { text-decoration: none; color: inherit;}
+        .pname-link:hover { text-decoration: underline; }
         .pdesc{font-weight:300;font-size:1.02rem;line-height:1.82;color:var(--warm);margin-bottom:26px}
         .tags{display:flex;flex-wrap:wrap;gap:8px}
         .tag{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:0.78rem;padding:4px 13px;border:1px solid var(--line);color:var(--dim);transition:all 0.18s}
@@ -849,7 +851,7 @@ export default function UCPortfolio() {
             <button key={id} onClick={()=>scrollTo(id)}>{lbl}</button>
           ))}
         </div>
-        <a href="/Shankar_Kailash_Resume_2_21_26.pdf" className="nav-dl" download>Resume ↓</a>
+        <a href="/Kailash_Shankar_Resume_Universal.pdf" className="nav-dl" download>Resume ↓</a>
       </nav>
 
       <div className="hero-wrap">
@@ -955,7 +957,7 @@ export default function UCPortfolio() {
               <div key={p.num} className="proj-row r">
                 <div>
                   <div className="pnum">{p.num}</div>
-                  <div className={`pname${p.featured?" star":""}`}>{p.name}</div>
+                 {p.link ? <a href={p.link} target="_blank" rel="noreferrer" className={`pname pname-link${p.featured?" star":""}`}>{p.name}</a> : <div className={`pname${p.featured?" star":""}`}>{p.name}</div>}
                   <div className="prole">{p.role.split(" · ")[0]}</div>
                   <div className="pdate">{p.role.split(" · ").slice(1).join(" · ")}</div>
                 </div>
@@ -1155,14 +1157,16 @@ export default function UCPortfolio() {
           <span className="contact-over r">Let's build something unforgettable</span>
           <h2 className="contact-h r d1">Ready to<em>Create.</em></h2>
           <p className="contact-p r d2">
-            I'm excited about the opportunity to contribute to Universal Creative this Fall —
-            to help build the software that makes guests forget they're in a theme park at all.
+            Universal is amid a period of <em>rapid expansion</em> - rolling out brand-new destinations and experiences all across the world, 
+            and integrating advanced, cutting-edge tech into the guest experience is a pivotal aspect to this unprecedented growth 
+            of the Universal brand. I'm thrilled about the opportunity to contribute to Universal Creative this Fall, to continue 
+            to <em>bring imagination to reality</em> like never before.
           </p>
           <div className="contact-links r d3">
             <a href="mailto:kailashshankar@ufl.edu" className="cl p">kailashshankar@ufl.edu</a>
             <a href="https://linkedin.com/in/kailash-shankar" target="_blank" rel="noreferrer" className="cl g">LinkedIn ↗</a>
             <a href="https://github.com/Kailash-Shankar" target="_blank" rel="noreferrer" className="cl g">GitHub ↗</a>
-            <a href="/Shankar_Kailash_Resume_2_21_26.pdf" className="cl g" download>Resume ↓</a>
+            <a href="/Kailash_Shankar_Resume_Universal.pdf" className="cl g" download>Resume ↓</a>
           </div>
           <div className="contact-foot r d3">© 2026 Kailash Shankar · Gainesville, FL · Built for Universal Creative</div>
         </div>
